@@ -164,7 +164,7 @@ export default function Home() {
                       <div className="relative hidden lg:block">
                         <div className="relative z-10">
                           <img
-                            src="/placeholder.svg?height=600&width=800"
+                            src="/eau.png"
                             alt={slide.title}
                             className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
                           />
@@ -229,7 +229,7 @@ export default function Home() {
             {products.map((product) => (
               <div key={product.id} className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className={`relative h-64 bg-gradient-to-br ${product.gradient} flex items-center justify-center`}>
-                  <img src="/placeholder.svg?height=200&width=200" alt={product.name} className="w-32 h-32 object-contain animate-float" />
+                  <img src="/eau.png" alt={product.name} className="w-32 h-32 object-contain animate-float" />
                   <div className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold absolute top-4 right-4 ${product.badgeColor} animate-pulse`}>
                     {product.badge}
                   </div>

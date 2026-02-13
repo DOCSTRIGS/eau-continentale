@@ -27,7 +27,7 @@ export default function Products() {
       gradient: 'from-blue-500 to-cyan-500',
       bgGradient: 'from-blue-600 to-cyan-600',
       icon: Droplets,
-      image: '/placeholder.svg?height=400&width=500'
+      image: '/eau.png'
     },
     {
       id: 2,
@@ -45,7 +45,7 @@ export default function Products() {
       gradient: 'from-green-500 to-emerald-500',
       bgGradient: 'from-green-600 to-emerald-600',
       icon: Package,
-      image: '/placeholder.svg?height=400&width=500'
+      image: '/eau.png'
     },
     {
       id: 3,
@@ -63,7 +63,7 @@ export default function Products() {
       gradient: 'from-purple-500 to-pink-500',
       bgGradient: 'from-purple-600 to-pink-600',
       icon: Building,
-      image: '/placeholder.svg?height=400&width=500'
+      image: '/eau.png'
     },
     {
       id: 4,
@@ -81,7 +81,7 @@ export default function Products() {
       gradient: 'from-orange-500 to-red-500',
       bgGradient: 'from-orange-600 to-red-600',
       icon: Calendar,
-      image: '/placeholder.svg?height=400&width=500'
+      image: '/eau.png'
     }
   ]
 
@@ -159,7 +159,7 @@ export default function Products() {
                                 <img
                                   src={slide.image}
                                   alt={slide.title}
-                                  className="w-full h-80 object-cover"
+                                  className="w-full h-[500px] object-cover"
                                 />
                                 <div className={`absolute inset-0 bg-gradient-to-t ${slide.gradient} opacity-20`}></div>
                               </div>
@@ -303,12 +303,12 @@ export default function Products() {
           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Sachets Product Card */}
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
-              <div className="relative h-80 bg-gradient-to-br from-blue-100 via-cyan-50 to-blue-200 flex items-center justify-center overflow-hidden">
+              <div className="relative h-[500px] bg-gradient-to-br from-blue-100 via-cyan-50 to-blue-200 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-400/10 to-cyan-400/10"></div>
                 <img
-                  src="/placeholder.svg?height=250&width=250"
+                  src="/eau.png"
                   alt="Sachets d'eau Intercontinental Eau"
-                  className="w-56 h-56 object-contain animate-float relative z-10"
+                  className="w-80 h-80 object-contain animate-float relative z-10"
                 />
                 <div className="absolute top-4 left-4">
                   <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-blue-500 text-white hover:bg-blue-600 animate-pulse">
@@ -374,12 +374,12 @@ export default function Products() {
 
             {/* Bonbonnes Product Card */}
             <div className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden card-hover">
-              <div className="relative h-80 bg-gradient-to-br from-green-100 via-emerald-50 to-green-200 flex items-center justify-center overflow-hidden">
+              <div className="relative h-[500px] bg-gradient-to-br from-green-100 via-emerald-50 to-green-200 flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400/10 to-emerald-400/10"></div>
                 <img
-                  src="/placeholder.svg?height=280&width=180"
+                  src="/eau.png"
                   alt="Bonbonnes 22L Intercontinental Eau"
-                  className="w-40 h-64 object-contain animate-float relative z-10"
+                  className="w-60 h-96 object-contain animate-float relative z-10"
                   style={{ animationDelay: '2s' }}
                 />
                 <div className="absolute top-4 left-4">

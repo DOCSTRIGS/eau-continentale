@@ -6,6 +6,7 @@ export default function Products() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [autoPlay, setAutoPlay] = useState(true)
   const autoPlayRef = useRef(null)
+  const [likedProducts, setLikedProducts] = useState({})
   const revealRef = useRef(null)
 
   useReveal(revealRef)
@@ -113,17 +114,24 @@ export default function Products() {
     setTimeout(() => setAutoPlay(true), 10000)
   }
 
+  const toggleLike = (productId) => {
+    setLikedProducts(prev => ({
+      ...prev,
+      [productId]: !prev[productId]
+    }))
+  }
+
   return (
-    <div className="min-h-screen">
+    <div className="w-full pb-20">
       {/* Carousel Section */}
-      <div className="min-h-screen">
-        <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="h-screen">
+        <div className="relative h-screen overflow-hidden bg-gradient-to-br from-slate-50 to-blue-50">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z%22 fill=%22%23000%22 fillOpacity=%220.1%22 fillRule=%22evenodd%22/%3E%3C/svg%3E')]"></div>
           </div>
 
-          <div className="relative min-h-screen">
+          <div className="relative h-screen">
             {/* Slides */}
             {slides.map((slide, index) => {
               const IconComponent = slide.icon
@@ -132,15 +140,15 @@ export default function Products() {
                   key={slide.id}
                   className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
                     index === currentSlide
-                      ? 'opacity-100 scale-100'
-                      : 'opacity-0 scale-95'
+                      ? 'opacity-100 scale-100 pointer-events-auto'
+                      : 'opacity-0 scale-95 pointer-events-none'
                   }`}
                 >
-                  <div className="relative z-10 min-h-screen flex items-center py-20">
-                    <div className="container mx-auto px-4">
-                      <div className="grid lg:grid-cols-2 gap-16 items-center">
+                  <div className="relative z-10 h-screen flex items-center justify-center py-8">
+                    <div className="container mx-auto px-4 max-w-7xl">
+                      <div className="grid lg:grid-cols-2 gap-12 items-center h-full">
                         {/* Left Product Card */}
-                        <div className="relative">
+                        <div className="relative hidden lg:block">
                           <div className="rounded-lg bg-card text-card-foreground overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border-0">
                             <div className={`absolute inset-0 bg-gradient-to-br ${slide.bgGradient} opacity-10`}></div>
 
@@ -150,8 +158,8 @@ export default function Products() {
                             </div>
 
                             {/* Wishlist Button */}
-                            <button className="absolute top-4 left-4 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-300">
-                              <Heart className="w-5 h-5 text-gray-600" />
+                            <button onClick={() => toggleLike(slide.id)} className={`absolute top-4 left-4 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all duration-300 ${likedProducts[slide.id] ? 'bg-red-50' : ''}`}>
+                              <Heart className={`w-5 h-5 transition-all duration-300 ${likedProducts[slide.id] ? 'fill-red-500 text-red-500' : 'text-gray-600'}`} />
                             </button>
 
                             <div className="p-0">
@@ -159,19 +167,19 @@ export default function Products() {
                                 <img
                                   src={slide.image}
                                   alt={slide.title}
-                                  className="w-full h-80 object-cover"
+                                  className="w-full h-64 object-cover"
                                 />
                                 <div className={`absolute inset-0 bg-gradient-to-t ${slide.gradient} opacity-20`}></div>
                               </div>
 
-                              <div className="p-8 space-y-6">
+                              <div className="p-6 space-y-4">
                                 {/* Product Header */}
                                 <div className="flex items-center space-x-4">
                                   <div className={`p-3 rounded-xl bg-gradient-to-r ${slide.gradient}`}>
                                     <IconComponent className="w-6 h-6 text-white" />
                                   </div>
                                   <div>
-                                    <h3 className="text-2xl font-bold text-gray-900">{slide.title}</h3>
+                                    <h3 className="text-xl font-bold text-gray-900">{slide.title}</h3>
                                     <p className="text-gray-600">{slide.format}</p>
                                   </div>
                                 </div>
@@ -213,15 +221,15 @@ export default function Products() {
                         </div>
 
                         {/* Right Content */}
-                        <div className="space-y-8">
+                        <div className="space-y-6">
                           <div>
                             <div className="inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-lg px-4 py-2 mb-4">
                               {slide.format}
                             </div>
-                            <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
                               {slide.title}
                             </h2>
-                            <p className="text-xl text-gray-600 leading-relaxed">
+                            <p className="text-lg text-gray-600 leading-relaxed">
                               {slide.description}
                             </p>
                           </div>

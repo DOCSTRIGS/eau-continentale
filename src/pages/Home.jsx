@@ -9,15 +9,18 @@ export default function Home() {
 
   const slides = [
     {
-      title: 'Eau Pure du Togo',
-      badge: 'Qualité Premium',
-      description: 'Découvrez notre eau pure et cristalline, produite selon les plus hauts standards de qualité au Togo.',
-      stat: '100%',
-      statLabel: 'Pure',
-      gradient: 'from-blue-600 to-cyan-600',
+     title: 'Eau Pure',
+    titleHighlight: 'du Togo',
+    badge: 'Qualité Premium',
+    description: 'Découvrez notre eau pure...',
+    stat: '100%',
+    statLabel: 'Pure',
+    gradient: 'from-blue-600 to-cyan-600',
+    image: '/assets/sachet.png'
     },
     {
-      title: 'Livraison Rapide',
+      title: 'Livraison',
+      titleHighlight: 'Rapide',
       badge: 'Service Express',
       description: 'Livraison gratuite dans tout Lomé en moins de 2h. Service client disponible 24/7.',
       stat: '2h',
@@ -25,7 +28,8 @@ export default function Home() {
       gradient: 'from-green-600 to-emerald-600',
     },
     {
-      title: 'Clients Satisfaits',
+      title: 'Clients',
+      titleHighlight: 'Satisfaits',
       badge: 'Confiance & Qualité',
       description: 'Plus de 10,000 clients nous font confiance pour leur approvisionnement en eau pure.',
       stat: '10K+',
@@ -104,114 +108,146 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Slider */}
-      <div className="min-h-screen">
-        <div className="relative h-screen overflow-hidden bg-gradient-to-br from-blue-50 to-cyan-50">
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fillRule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%239C92AC%22%20fillOpacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%224%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-          </div>
+     {/* Hero Slider */}
+<div className="min-h-screen">
+  <div className="relative h-screen overflow-hidden bg-gradient-to-br from-blue-900 to-cyan-700">
 
-          {/* Slides */}
-          <div className="relative h-full">
-            {slides.map((slide, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                  index === currentSlide ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-                }`}
-              >
-                <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} opacity-90`}></div>
-                <div className="relative z-10 h-full flex items-center">
-                  <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                      <div className="text-white space-y-6">
-                        <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-white/20 text-white border-white/30">
-                          {slide.badge}
-                        </div>
-                        <h1 className="text-5xl lg:text-7xl font-bold leading-tight">{slide.title}</h1>
-                        <p className="text-xl lg:text-2xl text-white/90 leading-relaxed">{slide.description}</p>
+    {/* Slides */}
+    <div className="relative h-full">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
+            index === currentSlide
+              ? 'opacity-100 translate-x-0'
+              : 'opacity-0 translate-x-full'
+          }`}
+        >
+          <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} opacity-90`} />
 
-                        <div className="flex items-center space-x-8">
-                          <div className="text-center">
-                            <div className="text-4xl lg:text-6xl font-bold text-white">{slide.stat}</div>
-                            <div className="text-white/80 text-lg">{slide.statLabel}</div>
-                          </div>
-                          <div className="flex space-x-2">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-                            ))}
-                          </div>
-                        </div>
+          <div className="relative z-10 h-full flex items-center">
+            <div className="container mx-auto px-6">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-                        <div className="flex flex-col sm:flex-row gap-4">
-                          <Link
-                            to="/products"
-                            className="inline-flex items-center justify-center whitespace-nowrap font-medium h-11 rounded-md bg-white text-gray-900 hover:bg-gray-100 text-lg px-8 py-4"
-                          >
-                            <Droplets className="w-5 h-5 mr-2" />
-                            Commander Maintenant
-                          </Link>
-                          <a
-                            href="tel:+22800000000"
-                            className="inline-flex items-center justify-center whitespace-nowrap font-medium border h-11 rounded-md border-white text-white hover:bg-white hover:text-gray-900 text-lg px-8 py-4 bg-transparent"
-                          >
-                            <Phone className="w-5 h-5 mr-2" />
-                            +228 XX XX XX XX
-                          </a>
-                        </div>
+                {/* LEFT CONTENT */}
+                <div className="text-white space-y-6">
+
+                  {/* Badge */}
+                  <div className="inline-flex items-center rounded-full px-4 py-1 text-sm font-semibold bg-white/20 backdrop-blur-sm">
+                    {slide.badge}
+                  </div>
+
+                  {/* TITLE (BLANC + UNE SEULE LIGNE) */}
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white whitespace-nowrap leading-tight">
+                    {slide.title} {slide.titleHighlight}
+                  </h1>
+
+                  {/* DESCRIPTION */}
+                  <p className="text-lg lg:text-xl text-white/90 max-w-xl">
+                    {slide.description}
+                  </p>
+
+                  {/* STATS + STARS */}
+                  <div className="flex items-center space-x-8">
+                    <div>
+                      <div className="text-5xl font-bold">
+                        {slide.stat}
                       </div>
-
-                      <div className="relative hidden lg:block">
-                        <div className="relative z-10">
-                          <img
-                            src="/placeholder.svg?height=600&width=800"
-                            alt={slide.title}
-                            className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
-                          />
-                        </div>
-                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/20 rounded-full animate-pulse"></div>
-                        <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/30 rounded-full animate-bounce"></div>
+                      <div className="text-white/80">
+                        {slide.statLabel}
                       </div>
                     </div>
+
+                    <div className="flex space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* BUTTONS */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link
+                      to="/products"
+                      className="inline-flex items-center justify-center rounded-full px-8 py-4 bg-white text-blue-700 font-semibold hover:bg-gray-100 transition"
+                    >
+                      <Droplets className="w-5 h-5 mr-2" />
+                      Commander Maintenant
+                    </Link>
+
+                    <a
+                      href="tel:+22800000000"
+                      className="inline-flex items-center justify-center rounded-full px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-blue-700 transition"
+                    >
+                      <Phone className="w-5 h-5 mr-2" />
+                      +228 XX XX XX XX
+                    </a>
                   </div>
                 </div>
+
+                {/* RIGHT IMAGE */}
+                <div className="relative hidden lg:flex justify-center">
+
+                  {/* Image principale */}
+                  <img
+                    src="/assets/hero-water.jpg"
+                    alt="Eau Pure"
+                    className="w-96 rounded-3xl shadow-2xl transform hover:scale-110 transition-all duration-700"
+                  />
+
+                  {/* Image décorative */}
+                  <img
+                    src="/assets/water-splash.png"
+                    alt="Decoration"
+                    className="absolute -bottom-10 -right-10 w-40 opacity-30 animate-pulse"
+                  />
+
+                  {/* Cercles décoratifs */}
+                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-white/20 rounded-full animate-ping" />
+                  <div className="absolute bottom-0 left-10 w-16 h-16 bg-white/30 rounded-full animate-bounce" />
+                </div>
+
               </div>
-            ))}
-          </div>
-
-          {/* Navigation Buttons */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
-          {/* Slide Indicators */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
-                }`}
-              ></button>
-            ))}
-          </div>
-
-          {/* Progress Bar */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/20">
-            <div className="h-full bg-white transition-all duration-300 ease-linear" style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}></div>
+            </div>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+
+    {/* Navigation */}
+    <button
+      onClick={prevSlide}
+      className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition"
+    >
+      <ChevronLeft className="w-6 h-6" />
+    </button>
+
+    <button
+      onClick={nextSlide}
+      className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 text-white p-3 rounded-full backdrop-blur-sm transition"
+    >
+      <ChevronRight className="w-6 h-6" />
+    </button>
+
+    {/* Indicators */}
+    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
+      {slides.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => setCurrentSlide(index)}
+          className={`w-3 h-3 rounded-full transition ${
+            index === currentSlide
+              ? 'bg-white scale-125'
+              : 'bg-white/50 hover:bg-white/80'
+          }`}
+        />
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* Products Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
@@ -229,7 +265,7 @@ export default function Home() {
             {products.map((product) => (
               <div key={product.id} className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className={`relative h-64 bg-gradient-to-br ${product.gradient} flex items-center justify-center`}>
-                  <img src="/placeholder.svg?height=200&width=200" alt={product.name} className="w-32 h-32 object-contain animate-float" />
+                  <img src="/assets/hero-water.jpg" alt={product.name} className="w-32 h-32 object-contain rounded-lg shadow-lg" />
                   <div className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold absolute top-4 right-4 ${product.badgeColor} animate-pulse`}>
                     {product.badge}
                   </div>

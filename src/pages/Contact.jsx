@@ -221,7 +221,7 @@ const ContactSlider = () => {
 
                         <div className="flex flex-col sm:flex-row gap-4">
                           <a 
-                            href={`tel:+228${slide.contacts[0].title.replace(/\+228\s?/, '').replace(/\s/g, '')}`}
+                            href="tel:+22890123456"
                             className={`inline-flex items-center justify-center whitespace-nowrap font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-11 rounded-md bg-gradient-to-r ${slide.gradient} hover:opacity-90 text-white text-lg px-8 py-4`}
                           >
                             <Phone className="w-5 h-5 mr-2" />

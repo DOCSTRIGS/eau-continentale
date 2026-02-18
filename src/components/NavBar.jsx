@@ -10,10 +10,7 @@ export default function NavBar() {
       <div className="container-wide py-4 flex items-center gap-6">
         <div className="flex items-center gap-3">
           <div className="h-11 w-11 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white">
-            {/* droplet SVG */}
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C12 2 7 8 7 12.5C7 16.5 9.68629 19 12 19C14.3137 19 17 16.5 17 12.5C17 8 12 2 12 2Z" fill="white"/>
-            </svg>
+            <img src="/eau.png" alt="Logo" className="w-8 h-8 object-contain" />
           </div>
           <div>
             <Link to="/" className="text-lg font-bold text-gray-800">EAU CONTINENTALE</Link>

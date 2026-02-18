@@ -23,7 +23,7 @@ export default function About() {
       gradient: 'from-blue-600 to-indigo-600',
       bgGradient: 'from-blue-600 to-indigo-600',
       icon: Calendar,
-      image: '/placeholder.svg?height=500&width=600'
+      image: '/eau.png'
     },
     {
       id: 2,
@@ -37,7 +37,7 @@ export default function About() {
       gradient: 'from-green-600 to-teal-600',
       bgGradient: 'from-green-600 to-teal-600',
       icon: Target,
-      image: '/placeholder.svg?height=500&width=600'
+      image: '/eau.png'
     },
     {
       id: 3,
@@ -51,7 +51,7 @@ export default function About() {
       gradient: 'from-purple-600 to-pink-600',
       bgGradient: 'from-purple-600 to-pink-600',
       icon: Heart,
-      image: '/placeholder.svg?height=500&width=600'
+      image: '/eau.png'
     },
     {
       id: 4,
@@ -65,7 +65,7 @@ export default function About() {
       gradient: 'from-orange-600 to-red-600',
       bgGradient: 'from-orange-600 to-red-600',
       icon: Users,
-      image: '/placeholder.svg?height=500&width=600'
+      image: '/eau.png'
     }
   ]
 
@@ -178,7 +178,7 @@ export default function About() {
                             <img
                               src={slide.image}
                               alt={slide.title}
-                              className="w-full h-96 object-cover"
+                              className="w-full h-[500px] object-cover"
                             />
                           </div>
                           <div className={`absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-r ${slide.gradient} rounded-full opacity-20 animate-pulse`} />

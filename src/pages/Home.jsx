@@ -188,34 +188,23 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* RIGHT IMAGE */}
-                <div className="relative hidden lg:flex justify-center">
-
-                  {/* Image principale */}
-                  <img
-                    src="/assets/hero-water.jpg"
-                    alt="Eau Pure"
-                    className="w-96 rounded-3xl shadow-2xl transform hover:scale-110 transition-all duration-700"
-                  />
-
-                  {/* Image décorative */}
-                  <img
-                    src="/assets/water-splash.png"
-                    alt="Decoration"
-                    className="absolute -bottom-10 -right-10 w-40 opacity-30 animate-pulse"
-                  />
-
-                  {/* Cercles décoratifs */}
-                  <div className="absolute -top-6 -left-6 w-24 h-24 bg-white/20 rounded-full animate-ping" />
-                  <div className="absolute bottom-0 left-10 w-16 h-16 bg-white/30 rounded-full animate-bounce" />
+                      <div className="relative hidden lg:block">
+                        <div className="relative z-10">
+                          <img
+                            src="/placeholder.svg?height=600&width=800"
+                            alt={slide.title}
+                            className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                        <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/20 rounded-full animate-pulse"></div>
+                        <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-white/30 rounded-full animate-bounce"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
               </div>
-            </div>
+            ))}
           </div>
-        </div>
-      ))}
-    </div>
 
     {/* Navigation */}
     <button
@@ -265,7 +254,7 @@ export default function Home() {
             {products.map((product) => (
               <div key={product.id} className="rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
                 <div className={`relative h-64 bg-gradient-to-br ${product.gradient} flex items-center justify-center`}>
-                  <img src="/assets/hero-water.jpg" alt={product.name} className="w-32 h-32 object-contain rounded-lg shadow-lg" />
+                  <img src="/placeholder.svg?height=200&width=200" alt={product.name} className="w-32 h-32 object-contain animate-float" />
                   <div className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold absolute top-4 right-4 ${product.badgeColor} animate-pulse`}>
                     {product.badge}
                   </div>
